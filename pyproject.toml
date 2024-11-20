@@ -1,13 +1,13 @@
-# pyproject.toml
+################################# Project metadata ##############################
 
 [build-system]
 requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "*FILL ME IN*"
+name = "PROJECT_NAME"
 version = "0.0.0"
-description = "*FILL ME IN*"
+description = "PROJECT_DESCRIPTION_GOES_HERE"
 authors = [
     { name="a-dubs", email="alecwarren19@gmail.com" },
 ]
@@ -20,18 +20,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
-[tool.setuptools]
-# packages = ["module1", "module2"]
-# packages.find.exclude = ["snap"] 
-
-[project.scripts]
-# Entry points for the package
-# command_1 = "module1.submodule:function_name"
-# command_2 = "module2.submodule:function_name"
-
 ################################ Dependencies #################################
-
-# dependencies that are needed for the project to run
 dependencies = [
     "diskcache",
     "pymongo",
@@ -40,6 +29,8 @@ dependencies = [
     "pydantic",
     "jinja2",
 ]
+
+############################# Optional dependencies ###########################
 
 # dependencies that are only needed for development
 [project.optional-dependencies]
@@ -55,6 +46,17 @@ test = [
     "pytest-mock",
     "pytest-xdist",
 ]
+
+############################# Setuptools configuration #########################
+
+[tool.setuptools]
+packages = ["module1", "module2"]
+
+[project.scripts]
+# Entry points for the package
+# command_1 = "module1.submodule:function_name"
+# command_2 = "module2.submodule:function_name"
+
 
 ############################# Mypy configuration ##############################
 
