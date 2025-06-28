@@ -163,6 +163,9 @@ unfixable = [
     "D1",  # ignore D1XX pydocstyle "missing docstring" checks for tests 
 ]
 
+# Set ruff's docstyle convention
+[tool.ruff.lint.pydocstyle]
+convention = "google"
 
 ############################ Pytest configuration #############################
 
