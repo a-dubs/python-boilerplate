@@ -48,19 +48,21 @@ repos:
     hooks:
       - id: pytest
         name: pytest
-        entry: pytest
+        entry: bash .github/hooks/run-pytest.sh
         language: system
         pass_filenames: false
         always_run: true
         stages: [manual, pre-push]
         # Pytest reads configuration from pyproject.toml (testpaths, markers, addopts)
+        # Wrapper script handles "no tests collected" gracefully
 
       - id: pytest-fast
         name: pytest-fast (parallel)
-        entry: pytest -n auto
+        entry: bash .github/hooks/run-pytest.sh -n auto
         language: system
         pass_filenames: false
         always_run: true
         stages: [manual, pre-push]
         # Fast parallel execution using pytest-xdist (-n auto uses all available CPUs)
         # Requires pytest-xdist to be installed
+        # Wrapper script handles "no tests collected" gracefully
