@@ -16,7 +16,7 @@ license = { file="LICENSE" }
 requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
 
@@ -132,14 +132,18 @@ select = [
     "ANN", # ANNxxx: Type annotations (flake8-annotations) | https://docs.astral.sh/ruff/rules/#flake8-annotations-ann
     "G",  # Gxxx: Logging string formatting | https://docs.astral.sh/ruff/rules/#flake8-logging-format-g,
     "D",  # Dxxx: Pydocstyle (docstring) checks | https://docs.astral.sh/ruff/rules/#pydocstyle-d
-    "B904",  # flake8-bugbear "raise-without-from-inside-except" | https://docs.astral.sh/ruff/rules/raise-without-from-inside-except/#raise-without-from-inside-except-b904
+    "B",  # Bxxx: Bugs and design issues (from `flake8-bugbear`) | https://docs.astral.sh/ruff/rules/#flake8-bugbear-b
+    "C4",  # C4xxx: Comprehension improvements (from `flake8-comprehensions`) | https://docs.astral.sh/ruff/rules/#flake8-comprehensions-c4
+    "PIE",  # PIExxx: Misc lints (from `flake8-pie`) | https://docs.astral.sh/ruff/rules/#flake8-pie-pie
+    "SIM",  # SIMxxx: Code simplification (from `flake8-simplify`) | https://docs.astral.sh/ruff/rules/#flake8-simplify-sim
+    "RET",  # RETxxx: Return statement improvements (from `flake8-return`) | https://docs.astral.sh/ruff/rules/#flake8-return-ret
+    "PTH",  # PTHxxx: Use pathlib instead of os.path (from `flake8-use-pathlib`) | https://docs.astral.sh/ruff/rules/#flake8-use-pathlib-pth
 
     # OPTIONAL: Enable pylint rules which are much more strict than the default ruff rules 
     #   "PLC", # PLCxxx: Pylint conventions | https://docs.astral.sh/ruff/rules/#convention-c
     #   "PLR", # PLCxxx: Pylint refactoring suggestions | https://docs.astral.sh/ruff/rules/#refactor-r
 
     # OPTIONAL: Enable flake8 plugins for suggestions to reduce potential bugs and security issues
-    #   "B",  # Bxxx: Bugs and design issues (from `flake8-bugbear`) | https://docs.astral.sh/ruff/rules/#flake8-bugbear-b
     #   "S",  # Sxxx: Security issues (from `flake8-bandit`) | https://docs.astral.sh/ruff/rules/#flake8-bandit-s
 ]
 
