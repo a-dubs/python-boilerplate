@@ -103,7 +103,7 @@ module = [
 [tool.ruff]
 line-length = 120
 # target version is important, this will impact the suggestions given by ruff and it's Pyupgrade implementation
-target-version = "py38" 
+target-version = "py38"
 preview = true  # use rules that are "unstable and in preview"
 # files or dirs to exclude from linting checks
 exclude = [
@@ -113,7 +113,7 @@ exclude = [
     "__pycache__/",  # Ignore Python bytecode cache
     "venv/",  # Ignore virtual environments
     ".*\\.egg-info/",  # Ignore egg metadata directories
-]  
+]
 
 [tool.ruff.lint]
 
@@ -139,7 +139,7 @@ select = [
     "RET",  # RETxxx: Return statement improvements (from `flake8-return`) | https://docs.astral.sh/ruff/rules/#flake8-return-ret
     "PTH",  # PTHxxx: Use pathlib instead of os.path (from `flake8-use-pathlib`) | https://docs.astral.sh/ruff/rules/#flake8-use-pathlib-pth
 
-    # OPTIONAL: Enable pylint rules which are much more strict than the default ruff rules 
+    # OPTIONAL: Enable pylint rules which are much more strict than the default ruff rules
     #   "PLC", # PLCxxx: Pylint conventions | https://docs.astral.sh/ruff/rules/#convention-c
     #   "PLR", # PLCxxx: Pylint refactoring suggestions | https://docs.astral.sh/ruff/rules/#refactor-r
 
@@ -154,7 +154,7 @@ ignore = [
   "D401",  # Disable non-imperative-mood pydocstyle rule
 ]
 
-# Any ruff rules that ruff should avoid trying to auto fix 
+# Any ruff rules that ruff should avoid trying to auto fix
 unfixable = [
     # Add any ruff rules here that should not be auto-fixed
     # e.g. "PLW2901"
@@ -164,7 +164,7 @@ unfixable = [
 [tool.ruff.lint.per-file-ignores]
 # assuming your tests directory is "./tests/"
 "tests/" = [
-    "D1",  # ignore D1XX pydocstyle "missing docstring" checks for tests 
+    "D1",  # ignore D1XX pydocstyle "missing docstring" checks for tests
 ]
 
 # Set ruff's docstyle convention

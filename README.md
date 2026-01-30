@@ -38,7 +38,7 @@ Unit tests are **opt-in** and do NOT run automatically on commit. You can run th
    ```bash
    # Run all tests
    pre-commit run pytest --hook-stage manual --all-files
-   
+
    # Run tests in parallel (faster)
    pre-commit run pytest-fast --hook-stage manual --all-files
    ```
@@ -47,7 +47,7 @@ Unit tests are **opt-in** and do NOT run automatically on commit. You can run th
    ```bash
    # First, enable pre-push hooks (one-time setup)
    pre-commit install --hook-type pre-push
-   
+
    # Now tests will run automatically before each push
    git push  # This will trigger pytest
    ```

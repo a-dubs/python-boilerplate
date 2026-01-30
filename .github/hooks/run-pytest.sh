@@ -5,7 +5,6 @@
 set +e  # Don't exit on error
 pytest "$@"
 exit_code=$?
-set -e
 
 # Exit code 5 = no tests collected (should be treated as success for pre-commit)
 # Exit code 0 = all tests passed
