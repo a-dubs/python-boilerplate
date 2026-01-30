@@ -40,7 +40,7 @@ repos:
         additional_dependencies: []
         # Mypy reads configuration from pyproject.toml
 
-  # Pytest - Unit testing (opt-in with manual or push stages)
+  # Pytest - Unit testing (opt-in with manual or pre-push stages)
   # These hooks are NOT run by default on commit
   # To run manually: pre-commit run --hook-stage manual --all-files
   # To enable on push: pre-commit install --hook-type pre-push
@@ -52,7 +52,7 @@ repos:
         language: system
         pass_filenames: false
         always_run: true
-        stages: [manual, push]
+        stages: [manual, pre-push]
         # Pytest reads configuration from pyproject.toml (testpaths, markers, addopts)
 
       - id: pytest-fast
@@ -61,6 +61,6 @@ repos:
         language: system
         pass_filenames: false
         always_run: true
-        stages: [manual, push]
+        stages: [manual, pre-push]
         # Fast parallel execution using pytest-xdist (-n auto uses all available CPUs)
         # Requires pytest-xdist to be installed
