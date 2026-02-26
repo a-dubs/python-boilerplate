@@ -52,7 +52,7 @@ repos:
         language: system
         pass_filenames: false
         always_run: true
-        stages: [manual, pre-push]
+        stages: [manual]
         # Pytest reads configuration from pyproject.toml (testpaths, markers, addopts)
         # Wrapper script handles "no tests collected" gracefully
 
