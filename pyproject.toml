@@ -23,7 +23,7 @@ classifiers = [
 ################################ Dependencies #################################
 dependencies = [
     "requests",
-    "pandas",
+    "python-dotenv",
 ]
 
 ############################# Optional dependencies ###########################
