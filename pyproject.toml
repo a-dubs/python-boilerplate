@@ -13,7 +13,7 @@ authors = [
 ]
 readme = "README.md"
 license = { file="LICENSE" }
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
@@ -104,7 +104,7 @@ module = [
 [tool.ruff]
 line-length = 120
 # target version is important, this will impact the suggestions given by ruff and it's Pyupgrade implementation
-target-version = "py38"
+target-version = "py311"
 preview = true  # use rules that are "unstable and in preview"
 # files or dirs to exclude from linting checks
 exclude = [
