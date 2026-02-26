@@ -33,11 +33,14 @@ repos:
       - id: ruff-format
 
   # Mypy - Static type checker for Python
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.8.0
+  # Uses local mypy so it has access to project dependencies and stubs
+  - repo: local
     hooks:
       - id: mypy
-        additional_dependencies: []
+        name: mypy
+        entry: mypy
+        language: system
+        types: [python]
         # Mypy reads configuration from pyproject.toml
 
   # Pytest - Unit testing (opt-in with manual or pre-push stages)
