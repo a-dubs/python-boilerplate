@@ -1,0 +1,71 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+# To install pre-commit hooks: pre-commit install
+# To enable pre-push hooks: pre-commit install --hook-type pre-push
+# To run hooks manually: pre-commit run --all-files
+# To run specific hook: pre-commit run <hook-id> --all-files
+# To run manual/push hooks: pre-commit run --hook-stage manual --all-files
+
+repos:
+  # General file hygiene hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: check-toml
+      - id: mixed-line-ending
+      - id: detect-private-key
+
+  # Ruff - Python linter and formatter (replaces flake8, isort, and more)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.2
+    hooks:
+      # Run the linter
+      - id: ruff
+        args: [--fix]
+      # Run the formatter
+      - id: ruff-format
+
+  # Mypy - Static type checker for Python
+  # Uses local mypy so it has access to project dependencies and stubs
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy
+        entry: mypy
+        language: system
+        types: [python]
+        # Mypy reads configuration from pyproject.toml
+
+  # Pytest - Unit testing (opt-in with manual or pre-push stages)
+  # These hooks are NOT run by default on commit
+  # To run manually: pre-commit run --hook-stage manual --all-files
+  # To enable on push: pre-commit install --hook-type pre-push
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: bash .github/hooks/run-pytest.sh
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [manual]
+        # Pytest reads configuration from pyproject.toml (testpaths, markers, addopts)
+        # Wrapper script handles "no tests collected" gracefully
+
+      - id: pytest-fast
+        name: pytest-fast (parallel)
+        entry: bash .github/hooks/run-pytest.sh -n auto
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [manual, pre-push]
+        # Fast parallel execution using pytest-xdist (-n auto uses all available CPUs)
+        # Requires pytest-xdist to be installed
+        # Wrapper script handles "no tests collected" gracefully
