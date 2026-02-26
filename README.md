@@ -1,5 +1,17 @@
 # python-boilerplate
 
+A Python project boilerplate with opinionated tooling for linting, type checking, testing, and formatting.
+
+## Quick Start
+
+```bash
+# Install in editable mode with dev + test dependencies
+pip install -e '.[dev,test]'
+
+# Install pre-commit hooks
+pre-commit install
+```
+
 ## Development Setup
 
 ### Pre-commit Hooks
@@ -8,17 +20,12 @@ This project uses [pre-commit](https://pre-commit.com/) to ensure code quality a
 
 #### Installation
 
-1. Install pre-commit (if not already installed):
-   ```bash
-   pip install pre-commit
-   ```
-
-2. Install the pre-commit hooks:
+1. Install the pre-commit hooks:
    ```bash
    pre-commit install
    ```
 
-3. (Optional) Enable pre-push hooks for running tests before pushing:
+2. (Optional) Enable pre-push hooks for running tests before pushing:
    ```bash
    pre-commit install --hook-type pre-push
    ```
@@ -36,7 +43,7 @@ Unit tests are **opt-in** and do NOT run automatically on commit. You can run th
 
 1. **Manual execution** (run tests on-demand):
    ```bash
-   # Run all tests
+   # Run all tests (serial)
    pre-commit run pytest --hook-stage manual --all-files
 
    # Run tests in parallel (faster)
@@ -67,7 +74,7 @@ pre-commit run mypy --all-files
 pre-commit run --hook-stage manual --all-files
 ```
 
-#### Disabling Pre-commit
+#### Skipping Pre-commit
 
 If you need to skip pre-commit hooks for a specific commit:
 ```bash
@@ -78,4 +85,18 @@ To uninstall pre-commit hooks:
 ```bash
 pre-commit uninstall
 pre-commit uninstall --hook-type pre-push
+```
+
+### Tox
+
+You can also run linting, type checking, and tests via [tox](https://tox.wiki/):
+
+```bash
+# Run all default environments (pytest-fast, lint, mypy)
+tox
+
+# Run specific environments
+tox -e lint
+tox -e mypy
+tox -e pytest-fast
 ```
